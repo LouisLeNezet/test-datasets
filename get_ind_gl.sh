@@ -1,13 +1,11 @@
 #!/bin/sh
 #Variables
-REF_GENOME=./data/reference_genome/hs38DH.chr21.fa.gz
+REF_GENOME=/groups/dog/llenezet/test-datasets/data/ref_gen/ref_gen.chr38.fa
+IND_LOC=./data/ind/
+IND_S_1X=${IND_LOC}12559.chr38.s.1x
+REGION=38:10000000-15000000
 
-IND_LOC=./data/NA12878/
-IND_S_1X=${IND_LOC}NA12878.chr21.s.1x
-
-REGION=chr21:16600000-16800000
-
-PANEL_NAME=./data/panel/1000GP.chr21.noNA12878.s
+PANEL_NAME=/groups/dog/llenezet/test-datasets/data/panel/DVDBC.chr38.s
 VCF=${PANEL_NAME}.sites.vcf.gz
 TSV=${PANEL_NAME}.sites.tsv.gz
 
