@@ -49,10 +49,12 @@ wget https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomi
 ```
 
 #### Environment
-To use the different script below you need bcftools, samtools and tabix.
+To use the different script below you need bcftools, samtools, plink2 tabix and shapeit5.
+Be sure that conda-forge is above the channel default in your `.condarc`
 You can install everything with conda by using the following commands:
 ```
-conda env create --name env_tools --file environment.yml
+conda config --set channel_priority strict
+conda env create --file environment.yml
 conda activate env_tools
 ```
 #### Preparation of the different panel files
@@ -61,22 +63,32 @@ conda activate env_tools
 3) Normalise the panel and filter out related individual to NA12878
 4) Select only the SNPS
 5) Convert to TSV
+6) Phase the panel
+7) Get the reference genome
 ```
 . get_panel_s.sh
 ```
 
-#### Preparation and downsampling of the individual file validation and test file
-1) Filter out the region of interest and format to BAM
-2) Get the genotype likelihood based on the panel for the validation file
-3) Downsampling the individual data to 1X
+#### Get SNP information
+1) Get the file and trim data to have only a column in the X:XX format
 ```
-. get_ind_1x
+. get_snp.sh
 ```
 
-#### Compute the genotype likelihood for the individual data 
-1) Compute genotype likelihood based on the panel
+#### Preparation all real data of 1 individual
+1) Filter out the region of interest and format to BAM
+2) Get the genotype likelihood based on the panel for the validation file
 ```
-. get_ind_gl.sh
+. get_ind_real
+```
+
+#### Get simulated data 1X and SNP
+1) Downsampling the individual data to 1X
+2) Compute genotype likelihood based on the panel
+3) Get individual SNP
+4) Phase the SNP data
+```
+. get_ind_simulated.sh
 ```
 ### For Beagle
 ```

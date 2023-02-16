@@ -1,6 +1,3 @@
-data/panel/*
-data/ind/*
-data/validation/*
-!data/**/*.s.*
-slurm*.out
-data/genetic_maps.b38/plink.GRCh38.map.zip
+data/*/*
+*.out
+*.log
