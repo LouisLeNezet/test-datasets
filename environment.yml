@@ -1,10 +1,11 @@
 name: env_tools
 channels:
-  - bioconda
-  - anaconda
   - conda-forge
+  - bioconda
   - defaults
 dependencies:
-  - bioconda::samtools
-  - bioconda::bcftools
-  - bioconda::tabix
+  - samtools
+  - bcftools
+  - tabix
+  - shapeit5
+  - plink2
